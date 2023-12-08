@@ -1,4 +1,5 @@
-Aryan Vyas,12,c
-Advait Purohit,11,d
-ananya vyas,4,a
-akshay vyas,8,f
+Name,Grade,Section
+aryan vyas, 8, B
+Name,Grade,Section
+Akshay vyas, 6, h
+Aryan Vyas, 6, B

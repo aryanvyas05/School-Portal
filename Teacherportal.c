@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\Printteacher.c>
 
+
 int main()
 {
     FILE *fptr = NULL;
+    FILE *teachfptr = NULL;
     int choice;
     printf("TEACHER PORTAL\n");
     printf("1. Display teacher information\n");
@@ -17,7 +19,7 @@ int main()
         displayteacher(fptr);
         break;
         case(2):
-        //add teacher
+             
         break;
         case(3):
         //edit teacher

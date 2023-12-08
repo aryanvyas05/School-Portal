@@ -7,6 +7,7 @@ struct teacher{
     char name[50];
     int grade;
     char section;
+    struct teacher * next;
     
     };
 void displayteacher(FILE *fptr)
