@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.c>
+#include "structTeacher.h"
 
-void displayteacher(FILE *fptr)
+void displayTeacher(FILE *fptr)
 {
     struct teacher t;
     int grade;
@@ -24,6 +24,6 @@ void displayteacher(FILE *fptr)
     while(fscanf(fptr, "%49[^,]"",%d,%c", t.name, &t.grade, &t.section) != EOF){
     if(t.grade == grade && tolower(t.section) == lowsection){
         printf("%s %d %c", t.name, t.grade, t.section);
-    }       
-}
+    }     
+} 
 }

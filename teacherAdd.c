@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.c>
-
-
+#include "structTeacher.h"
 
 void addTeacher(FILE *teachfptr)
 {
@@ -21,6 +19,7 @@ void addTeacher(FILE *teachfptr)
 
       }
       fseek(teachfptr, 0, SEEK_END);
+    
     printf("Name : ");
     fgets(teacherName, sizeof(teacherName), stdin);
     teacherName[strcspn(teacherName, "\n")] = '\0';

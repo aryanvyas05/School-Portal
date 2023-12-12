@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\teacherPrint.c>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\studentAdd.c>
 
 int main()
 {
