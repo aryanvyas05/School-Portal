@@ -13,7 +13,6 @@ void displayTeacher(FILE *fptr) {
     printf("Please enter section :");
     scanf(" %c", &section);
     getchar();
-
     fptr = fopen("Teacher.csv", "r");
 
     if (fptr == NULL) {
