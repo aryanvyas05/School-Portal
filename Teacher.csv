@@ -1,9 +1,6 @@
-Roll no,Name,age,Father's name,Address
-Aryan Vyas, 5, C
-Aryan Vyas, 5, c
-Ananya Vyas, 12, D
-AKshay Vyas, 11, D
-Aryan Vyas, 8, A
-Aryan Vyas, 8, F
-Mitesh Purohit, 12, B
-Manish Purohit, 8, F
+Name,Class,Section
+Akshay Vyas,12,A
+Akshay Vyas,11,B
+Tom BOy,10,C
+Mitesh Purohit,9,D
+Manish Purohit,8,E

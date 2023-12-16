@@ -15,7 +15,7 @@ void addTeacher(FILE *teachfptr)
     teachfptr = fopen(filename, "a+");
     fseek(teachfptr, 0, SEEK_SET);
       if (fgets(buffer, sizeof(buffer), teachfptr) == NULL) {
-        fprintf(teachfptr, "Roll no,Name,age,Father's name,Address\n");
+        fprintf(teachfptr, "Name,Class,Section\n");
 
       }
       fseek(teachfptr, 0, SEEK_END);

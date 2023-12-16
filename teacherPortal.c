@@ -2,15 +2,18 @@
 #include <stdlib.h>
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\teacherPrint.c>
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\teacherAdd.c>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\editTeacher.c>
 #include "C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.h"
+
 
 
 int main()
 {
     FILE *fptr = NULL;
-    FILE *teachfptr;
-    int choice;
-    char addChoice;
+    FILE *teachfptr = NULL;
+    FILE *editfptr = NULL;
+    int choice, grade;
+    char addChoice, section;
     printf("TEACHER PORTAL\n");
     printf("1. Display teacher information\n");
     printf("2. Add teacher\n");
@@ -19,7 +22,7 @@ int main()
     scanf("%d", &choice);
     switch(choice){
         case(1):
-        displayteacher(fptr);
+        displayTeacher(fptr);
         break;
         case(2):
         getchar();
@@ -35,7 +38,7 @@ int main()
         } while (addChoice == 'y' || addChoice == 'Y');
         break;
         case(3):
-        //edit teacher
+        editTeacher(grade, section);
         break;
         case(4):
         //remove teacher
