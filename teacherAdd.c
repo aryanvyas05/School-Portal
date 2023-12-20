@@ -23,16 +23,32 @@ void addTeacher(FILE *teachfptr)
     printf("Name : ");
     fgets(teacherName, sizeof(teacherName), stdin);
     teacherName[strcspn(teacherName, "\n")] = '\0';
-    printf("Grade : ");
-    scanf("%d", &teacherGrade);
-    getchar();
-    printf("Section: ");
-    scanf("%c", &teacherSection);   
+    while (1) {
+        printf("Please enter grade: ");
+        if (scanf("%d", &teacherGrade) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid grade.\n");
+            while (getchar() != '\n');
+        }
+    }
+    while (1) {
+        printf("Please enter section: ");
+        if (scanf(" %c", &teacherSection) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid section.\n");
+            while (getchar() != '\n');
+        }
+    }     
     head = (struct teacher * ) malloc(sizeof(struct teacher));
+    head->name = (char *)malloc(strlen(teacherName) + 1);
     current = head;
     strcpy(current -> name, teacherName );
     current -> grade = teacherGrade;
-    current -> section = teacherSection;
+    current -> section = tolower(teacherSection);
     current -> next = NULL;
     fprintf(teachfptr,"%s, %d, %c\n", current -> name, current -> grade, current -> section);
     

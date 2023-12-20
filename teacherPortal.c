@@ -3,6 +3,7 @@
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\teacherPrint.c>
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\teacherAdd.c>
 #include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\editTeacher.c>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\removeTeacher.c>
 #include "C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.h"
 
 
@@ -13,7 +14,7 @@ int main()
     FILE *teachfptr = NULL;
     FILE *editfptr = NULL;
     int choice, grade;
-    char addChoice, section;
+    char addChoice, editchoice, section;
     printf("TEACHER PORTAL\n");
     printf("1. Display teacher information\n");
     printf("2. Add teacher\n");
@@ -38,10 +39,85 @@ int main()
         } while (addChoice == 'y' || addChoice == 'Y');
         break;
         case(3):
-        editTeacher(grade, section);
+        getchar();    while (1) {
+        printf("Please enter grade: ");
+        if (scanf("%d", &grade) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid grade.\n");
+            while (getchar() != '\n');
+        }
+    }
+
+    while (1) {
+        printf("Please enter section: ");
+        if (scanf(" %c", &section) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid section.\n");
+            while (getchar() != '\n');
+        }
+    }
+
+        editTeacher(grade,section);
+        do
+        { printf("Do you want to edit another teacher (y/n): ");
+          scanf(" %c", &editchoice);
+          getchar();
+          if (editchoice == 'y' || editchoice == 'Y')
+          {
+                while (1) {
+        printf("Please enter grade: ");
+        if (scanf("%d", &grade) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid grade.\n");
+            while (getchar() != '\n');
+        }
+    }
+
+    while (1) {
+        printf("Please enter section: ");
+        if (scanf(" %c", &section) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid section.\n");
+            while (getchar() != '\n');
+        }
+    }
+
+            editTeacher(grade,section);
+          }
+        } while (editchoice == 'y' || editchoice == 'Y');
         break;
         case(4):
-        //remove teacher
+        while (1) {
+        printf("Please enter grade: ");
+        if (scanf("%d", &grade) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid grade.\n");
+            while (getchar() != '\n');
+        }
+    }
+
+    while (1) {
+        printf("Please enter section: ");
+        if (scanf(" %c", &section) == 1) {
+            getchar();
+            break;
+        } else {
+            printf("Invalid input. Please enter a valid section.\n");
+            while (getchar() != '\n');
+        }
+    }
+    removeTeacher(grade, section);
         break;
     }
+    return 0;
 }

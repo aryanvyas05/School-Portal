@@ -2,7 +2,7 @@
 #define STRUCT_TEACHER_H
 
 struct teacher {
-    char name[50];
+    char *name;
     int grade;
     char section;
     struct teacher* next;
