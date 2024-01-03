@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\studentAdd.c>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\modules\studentModule\studentAdd.c>
 
 int main()
 {
@@ -14,6 +14,8 @@ int main()
     scanf("%d", &choice);
     switch(choice){
         case 1:
+        //display student
+        case 2:
         addstudent(fptr);
         do
         { printf("Do you want to add another student? (y/n): ");
@@ -26,10 +28,10 @@ int main()
         break;
 
         break;
-        case 2:
+        case 3:
         //edit student
         break;
-        case 3:
+        case 4:
         //remove student
         break;
     }

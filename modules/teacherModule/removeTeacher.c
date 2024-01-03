@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.h>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\modules\teacherModule\structTeacher.h>
 
 void removeTeacher(int grade, char section)
 {

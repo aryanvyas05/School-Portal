@@ -13,11 +13,23 @@ void displayTeacher(FILE *fptr) {
         if (scanf("%d", &grade) == 1) {
             getchar();
             break;
+
         } else {
             printf("Invalid input. Please enter a valid grade.\n");
             while (getchar() != '\n');
         }
     }
+
+        fptr = fopen("Teacher.csv", "r");
+        
+        fscanf(fptr, "%*[^\n]\n");
+        t.name = malloc(50 * sizeof(char));
+        while (fscanf(fptr, " %49[^,],%d, %c", t.name, &t.grade, &t.section) == 3) {
+        if (t.grade == grade) {
+            printf("%s %d %c\n", t.name, t.grade, t.section);
+        }
+    }
+        fseek(fptr, 0, SEEK_SET);
 
     while (1) {
         printf("Please enter section: ");
@@ -29,15 +41,16 @@ void displayTeacher(FILE *fptr) {
             while (getchar() != '\n');
         }
     }
-    fptr = fopen("Teacher.csv", "r");
+    
+    fscanf(fptr, "%*[^\n]\n");
+    t.name = malloc(50 * sizeof(char));
 
     if (fptr == NULL) {
         perror("Error opening file");
         exit(EXIT_FAILURE);
     }
 
-    fscanf(fptr, "%*[^\n]\n");
-    t.name = malloc(50 * sizeof(char));
+
 
     while (fscanf(fptr, " %49[^,],%d, %c", t.name, &t.grade, &t.section) == 3) {
         if (t.grade == grade && tolower(t.section) == tolower(section)) {
@@ -48,6 +61,6 @@ void displayTeacher(FILE *fptr) {
     if(count == 0){
         printf("No value");
     }
-
+    
     fclose(fptr);
 }

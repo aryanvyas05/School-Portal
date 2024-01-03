@@ -3,6 +3,7 @@
 
 struct teacher {
     char *name;
+    char *subject;
     int grade;
     char section;
     struct teacher* next;

@@ -2,16 +2,38 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\structTeacher.h>
+#include <C:\Users\Aryan\Desktop\Aryan Docs\School portal\modules\teacherModule\structTeacher.h>
 
 void editTeacher(int grade, char section)
 {
-    FILE *tempFile,*editfptr;
+    FILE *tempFile,*editfptr, *fptr;
     struct teacher t;
-    char newName[50];
+    char choice, newName[50];
+    int count =0;
 
+    
+    fptr = fopen("Teacher.csv", "r");
 
-    editfptr = fopen("Teacher.csv", "r");
+    fscanf(fptr, "%*[^\n]\n");
+    t.name = malloc(50 * sizeof(char));
+
+    while (fscanf(fptr, " %49[^,],%d, %c", t.name, &t.grade, &t.section) == 3) {
+        if (t.grade == grade && tolower(t.section) == tolower(section)) {
+            printf("%s %d %c\n", t.name, t.grade, t.section);
+            count = count+1;
+        }
+    }
+    if(count == 0){
+        printf("No value");
+        return;
+    }
+
+    fclose(fptr);
+    
+    printf("Are you sure you want to edit? (y/n): ");
+    scanf("%c", &choice);
+    if(choice == 'y' || choice == 'Y'){
+        editfptr = fopen("Teacher.csv", "r");
     tempFile = fopen("tempTeacher.csv", "w");
 
     if (editfptr == NULL || tempFile == NULL) {
@@ -22,7 +44,7 @@ void editTeacher(int grade, char section)
     if (fgets(header, sizeof(header), editfptr) != NULL) {
         fprintf(tempFile, "%s", header);
     }
-
+    getchar();
     printf("Enter new name: ");
     fgets(newName, sizeof(newName), stdin);
     newName[strcspn(newName, "\n")] = '\0';
@@ -32,6 +54,7 @@ void editTeacher(int grade, char section)
         strcpy(t.name, newName);
     }
 
+
     fprintf(tempFile, "%s,%d,%c\n", t.name, t.grade, t.section);
 }
 
@@ -40,5 +63,9 @@ void editTeacher(int grade, char section)
 
     remove("Teacher.csv");
     rename("tempTeacher.csv", "Teacher.csv");
+    }
+    else{
+        printf("Exit");
+    }
 
 }
